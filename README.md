@@ -22,3 +22,7 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
 ````
 
 ### B. Further instruction to be written
+
+````console
+[runiyal@ui20 ~]$ cd /cms/scratch/runiyal
+````
