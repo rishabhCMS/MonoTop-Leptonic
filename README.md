@@ -1,7 +1,7 @@
 # MonoTop-Leptonic
 This repository will contain resources for MonoTop Analysis in the leptonic channel
 
-### A. Commants for the KISTI super cluster
+### A. Commands for the KISTI super cluster
 
 1. **to log in**
 
@@ -24,5 +24,6 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
 ### B. Further instruction to be written
 
 ````console
-[runiyal@ui20 ~]$ cd /cms/scratch/runiyal
+[runiyal@ui20 ~]$ cd /cms/scratch/runiyal 
 ````
+waiting for space allocation
