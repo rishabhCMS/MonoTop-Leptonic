@@ -38,7 +38,7 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
 2. **Packing files into packs of 32 for 2018**
 
 ````console
-[runiyal@ui20 analysis]$ python pack.py -y 2018 -p 32 
+[runiyal@ui20 analysis]$ python pack.py -y 2018 -p 32  #packs are done on lpc cluster 
 ````
 
 3. **Generating histograms**
