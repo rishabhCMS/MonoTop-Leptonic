@@ -74,7 +74,17 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
      ````console
      [runiyal@ui20 analysis]$ python processors/darkhiggs.py -y 2018
      ````
-     - **Running with condor**
+     
+     - **Running tests on individual file before submitting jobs**
+     ````console
+     python run.py --metadata=2018 --dataset=MET____0_ --processor=darkhiggs2018
+     ````
+     - **Running tests on individual file using condor**
+     ````console
+     
+     ````
+     
+     - **submitting all jobs with condor**
      ````console
      [runiyal@ui20 analysis]$ python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t
      [runiyal@ui20 analysis]$   python reduce_condor.py -f hists/monotop2018 -c kisti -t
