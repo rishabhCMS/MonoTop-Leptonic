@@ -77,6 +77,13 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
      
      - **Running tests on individual file before submitting jobs**
      ````console
+     #chek you coffea version first
+     $python
+     >>> import coffea
+     >>> coffea.__version__
+     # if the version is something else use the following command to install the relevant version
+     pip install coffea==0.6.37 --user
+     
      python run.py --metadata=2018 --dataset=MET____0_ --processor=darkhiggs2018
      ````
      - **Running tests on individual file using condor**
