@@ -27,7 +27,11 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
 [runiyal@ui20 ~]$ cd /cms/scratch/runiyal 
 ````
 1. **Initial settings**
+edit the [run_condor.py](https://github.com/rishabhCMS/decaf/blob/master/analysis/run_condor.py#L45)
+
+replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
 ````console
+
 [runiyal@ui20 decaf]$ git clone https://github.com/rishabhCMS/decaf.git
 [runiyal@ui20 decaf]$ cd decaf/
 [runiyal@ui20 decaf]$ source setup_lcg.sh # just run it once
