@@ -89,6 +89,7 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      pip install coffea==0.6.37 --user
      
      python run.py --metadata=2018 --dataset=MET____0_ --processor=darkhiggs2018
+     condor_q -better-analyze
      ````
      - **Running tests on individual file using condor**
      ````console
