@@ -99,11 +99,11 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      
      - **submitting all jobs with condor**
      ````console
-     [runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t
-     [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/monotop2018 -c kisti -t
-     [runiyal@ui20 analysis]$  python merge_condor.py -f hists/monotop2018 -c kisti -t
-     [runiyal@ui20 analysis]$  python merge.py -f hists/monotop2018 -p
-     [runiyal@ui20 analysis]$  python scale.py -f hists/monotop2018.merged 
+     [runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t #this generates .futures files
+     [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/darkhiggs2018 -c kisti -t
+     [runiyal@ui20 analysis]$  python merge_condor.py -f hists/darkhiggs2018 -c kisti -t
+     [runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p
+     [runiyal@ui20 analysis]$  python scale.py -f hists/darkhiggs2018.merged 
      ````
      
      - **Plotting**
@@ -111,7 +111,7 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
 4. **Accessing Jupyter NB on KISTI**
 
     ````console
-    rishabh@uniyal:~$ ssh -p 4280 -L 9009:localhost:9009 runiyal@ui20.sdfarm.kr
+    rishabh@uniyal:~$ ssh -p 4280 -L 9009:localhost:9009 runiyal@ui20.sdfarm.kr                            
     [runiyal@ui20 ~]$ cd ../../scratch/runiyal/decaf
     [runiyal@ui20 decaf]$ source env_lcg.sh
     [runiyal@ui20 decaf]$ jupyter notebook --no-browser --port=9009 --ip 127.0.0.1 &>./start_jupyter.log &
