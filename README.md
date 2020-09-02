@@ -24,7 +24,7 @@ rishabh@uniyal:~$ ssh -L 9094:localhost:9094 -p 4280 runiyal@ui20.sdfarm.kr
 ### B. creating files packs, compile weights and generating histograms 
 
 ````console
-[runiyal@ui20 ~]$ cd /cms/scratch/runiyal 
+[runiyal@ui20 ~]$ cd ../../scratch/runiyal/decaf 
 ````
 1. **Initial settings**
 edit the [run_condor.py](https://github.com/rishabhCMS/decaf/blob/master/analysis/run_condor.py#L45)
@@ -93,13 +93,14 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      ````
      - **Running tests on individual file using condor**
      ````console
-     
+     if want to test a single condor job with condor submission
+     python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti --dataset=MET____0_
      ````
      
      - **submitting all jobs with condor**
      ````console
-     [runiyal@ui20 analysis]$ python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t
-     [runiyal@ui20 analysis]$   python reduce_condor.py -f hists/monotop2018 -c kisti -t
+     [runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t
+     [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/monotop2018 -c kisti -t
      [runiyal@ui20 analysis]$  python merge_condor.py -f hists/monotop2018 -c kisti -t
      [runiyal@ui20 analysis]$  python merge.py -f hists/monotop2018 -p
      [runiyal@ui20 analysis]$  python scale.py -f hists/monotop2018.merged 
@@ -107,3 +108,17 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      
      - **Plotting**
       
+4. **Accessing Jupyter NB on KISTI**
+
+    ````console
+    rishabh@uniyal:~$ ssh -p 4280 -L 9009:localhost:9009 runiyal@ui20.sdfarm.kr
+    [runiyal@ui20 ~]$ cd ../../scratch/runiyal/decaf
+    [runiyal@ui20 decaf]$ source env_lcg.sh
+    [runiyal@ui20 decaf]$ jupyter notebook --no-browser --port=9009 --ip 127.0.0.1 &>./start_jupyter.log &
+    [runiyal@ui20 decaf]$ jupyter notebook list
+    ````
+
+Now there are two methods
+
+        Method 1: go to your local browser and in the address bar type "127.0.0.1:9009" and enter the token number 
+        Method 2. Copy paste on of the links you see after executing "jupyter notebook list"
