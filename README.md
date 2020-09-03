@@ -102,7 +102,7 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      ````console
      if want to test a single condor job with condor submission
      python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti --dataset=MET____0_
-     python reduce_condor.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/
+     python reduce_condor.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/ -c kisti
 
      # test 
      ````
