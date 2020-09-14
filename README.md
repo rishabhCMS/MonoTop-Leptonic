@@ -102,7 +102,7 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      ````console
      if want to test a single condor job with condor submission
      python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti --dataset=MET____0_
-     python reduce_condor.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/ -c kisti
+     python reduce_condor.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/ -c kisti -x -t
 
      # test 
      ````
@@ -110,8 +110,8 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
      - **submitting all jobs with condor**
      ````console
      [runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t #this generates .futures files
-     [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/darkhiggs2018 -c kisti -t
-     [runiyal@ui20 analysis]$  python merge_condor.py -f hists/darkhiggs2018 -c kisti -t
+     [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/darkhiggs2018 -c kisti -t -x
+     [runiyal@ui20 analysis]$  python merge_condor.py -f hists/darkhiggs2018 -c kisti -t -x
      [runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p
      [runiyal@ui20 analysis]$  python scale.py -f hists/darkhiggs2018.merged 
      ````
