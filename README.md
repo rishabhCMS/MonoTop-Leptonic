@@ -39,8 +39,8 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
 
 [runiyal@ui20 decaf]$ git clone https://github.com/rishabhCMS/decaf.git
 [runiyal@ui20 decaf]$ cd decaf/
-[runiyal@ui20 decaf]$ source setup_lcg.sh # just run it once
-[runiyal@ui20 decaf]$ source env_lcg.sh   # run it everytime when you login
+[runiyal@ui20 decaf]$ . ./setup_lcg.sh # just run it once
+[runiyal@ui20 decaf]$ . ./env_lcg.sh   # run it everytime when you login
 
 ````
 
