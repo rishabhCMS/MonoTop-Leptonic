@@ -29,3 +29,9 @@ This gives the leading-order balance y = x3. Thus the leading-order behaviour of
 ![](https://upload.wikimedia.org/wikipedia/commons/6/65/LeadingOrderGraph.JPG)
 
 y = x<sup>3</sup> + 5x + 0.1. The leading order, or main, behaviour at `x = 0.001` is that y is constant, and at `x = 10` is that y increases cubically with x.
+
+### What is Perturbative QCD?
+
+[further notes will be based on this](https://web.pa.msu.edu/people/huston/Kfactor/Kfactor.pdf)
+
+Experimentalists typically deal with leading order (LO) calculations, especially in the context of partonshower Monte  Carlos.   Some of the  information  from  a NLO calculation  can  be  encapsulated  in theK-factor,  the ratio of the NLO to LO cross section for a given process,  with the caveat that the valueof the K-factor depends  upon  a number of variables,  including  the values of the renormalization  andfactorization scales, as well as the parton distribution functions (PDFs) used at LO and NLO
