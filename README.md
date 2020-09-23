@@ -57,8 +57,14 @@ AC issuer key unreadable or unverifiable.
 ````
 then do the following or go to this [link](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert)
 
-        1. Export the certificate from your browser to a file in p12 format. How to export the certificate is very browser dependent. It will be something like Edit or Tools -> Preferences or (Internet) Options -> Advanced -> Security or Encryption -> View Certificates -> Your Certificates. In modern Firefox you should “backup” rather than “export” the certificate. You can find more instructions and hints for various browsers in this CERN CA help page. You can give any name to your p12 file (in the example below the name is mycert.p12).
-        Place the p12 certificate file in the .globus directory of your home area. If the .globus directory doesn't exist, create it. 
+        1. Export the certificate from your browser to a file in p12 format. How to export the certificate is very browser dependent. 
+        It will be something like Edit or 
+        Tools -> Preferences or (Internet) Options -> Advanced -> Security or Encryption -> View Certificates -> Your Certificates. 
+        In modern Firefox you should “backup” rather than “export” the certificate. 
+        You can find more instructions and hints for various browsers in this CERN CA help page. 
+        You can give any name to your p12 file (in the example below the name is mycert.p12).
+        
+        2. Place the p12 certificate file in the .globus directory of your home area. If the .globus directory doesn't exist, create it. 
 
 ````console
 cd ~
