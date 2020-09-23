@@ -43,7 +43,39 @@ replace /tmp/x509up_u556950957 --->  /tmp/x509up_u556951020
 [runiyal@ui20 decaf]$ . ./env_lcg.sh   # run it everytime when you login
 
 ````
+1.a. if after running `. ./env_lcg.sh` you get an error like the following
 
+````console
+Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=runiyal/CN=820936/CN=Rishabh Uniyal
+Creating temporary proxy ..................................................................... Done
+Contacting lcg-voms2.cern.ch:15002 [/DC=ch/DC=cern/OU=computers/CN=lcg-voms2.cern.ch] "cms" Done
+Creating proxy ........................... Done
+
+Your proxy is valid until Wed Sep 23 20:55:23 2020
+Error: verification failed.
+AC issuer key unreadable or unverifiable.
+````
+then do the following or go to this [link](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert)
+
+        1. Export the certificate from your browser to a file in p12 format. How to export the certificate is very browser dependent. It will be something like Edit or Tools -> Preferences or (Internet) Options -> Advanced -> Security or Encryption -> View Certificates -> Your Certificates. In modern Firefox you should “backup” rather than “export” the certificate. You can find more instructions and hints for various browsers in this CERN CA help page. You can give any name to your p12 file (in the example below the name is mycert.p12).
+        Place the p12 certificate file in the .globus directory of your home area. If the .globus directory doesn't exist, create it. 
+
+````console
+cd ~
+mkdir .globus
+cd ~/.globus
+mv /path/to/mycert.p12 .
+
+rm -f usercert.pem
+rm -f userkey.pem
+openssl pkcs12 -in mycert.p12 -clcerts -nokeys -out usercert.pem
+openssl pkcs12 -in mycert.p12 -nocerts -out userkey.pem
+chmod 400 userkey.pem
+chmod 400 usercert.pem
+
+# use the command below to test if the certificate is installed correctly
+voms-proxy-init --rfc --voms cms -valid 192:00
+````
 2. **Packing files into packs of 32 for 2018**
 
 ````console
