@@ -45,4 +45,57 @@ This directory contains the config files to use for 2016 to 2018 data and mc Nan
 cmsRun mc_NANO_2016.py
 ````
 
-## 
+## Production
+````console
+cd $CMSSW_BASE/src/PhysicsTools/NanoTuples/crab
+cmsenv
+# set up grid proxy
+voms-proxy-init -rfc -voms cms --valid 168:00
+# set up CRAB env (must be done after cmsenv)
+source /cvmfs/cms.cern.ch/crab3/crab_slc7.sh
+````
+
+**Step 0**: Choose the right python config file. This is the `-p` argument to `crab.py`. You will also need this to determine the splitting parameters (`Step 1 below`). See section above for how the configs were generated. Note that you need a different config file for `Run2018ABC` vs `Run2018D`. The eras for `2018` are also separated into two input text files with the dataset names.
+
+**Step 1**: Estimate appropriate splitting parameters.
+
+Edit `testConfig.py` to change `config.JobType.psetName` to `mc_NANO_[year].py` or `data_NANO_[year].py` and to change `config.Data.inputDataset` to one of the datasets in `miniaod[year].txt` or `miniaod[year]_data.txt`.
+
+Use the `crab --dryrun` option to get an estimate of the run time. This might take a few minutes to run.
+
+````console
+crab submit --config=testConfig.py --dryrun
+````
+Ignore a possible warning:
+
+`Warning: Incompatible CRABClient version 3.3.1910.patch2`
+
+Part of the output from this command should look like the following:
+
+    For ~480 minute jobs, use:
+    Data.unitsPerJob = 16737
+
+Round this number to an appropriate value, and use it to set the `-n` option for `crab.py` in Step 2.
+
+**Step 2**: use the `crab.py` script to submit the CRAB jobs. Replace `[year]` with the appropriate value
+
+For MC:
+````console
+python crab.py -p mc_NANO_[year].py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_[year] -t NanoTuples-[year] -i miniaod[year].txt  --send-external -s EventAwareLumiBased -n [XX] --work-area crab_projects_mc_[year] --dryrun
+````
+
+**Step 3**: check job status
+
+The status of the CRAB jobs can be checked with:
+````console
+./crab.py --status --work-area crab_projects_[mc/data]_[year]
+````
+Note that this will also resubmit failed jobs automatically.
+
+The crab dashboard can also be used to get a quick overview of the job status: https://dashb-cms-job.cern.ch/dashboard/templates/task-analysis
+
+More options of this crab.py script can be found with:
+
+````console
+./crab.py -h
+````
