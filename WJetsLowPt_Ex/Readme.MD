@@ -45,23 +45,4 @@ This directory contains the config files to use for 2016 to 2018 data and mc Nan
 cmsRun mc_NANO_2016.py
 ````
 
-## Private MC production
-
-**Step 1**: Prepare txt file including eos path to privately produced MiniAODs. For example, if MiniAOD saved at lpc cluster, the path to the file should be
-
-        root://cmseos.fnal.gov//store/path/to/the/MiniAOD
-
-**Step 2**: Use the `crab_private.py` script to submit the CRAB jobs.
-````console
-# wjets_lowpt_2016
-python crab.py -p mc_NANO_2016.py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016 -t NanoTuples-2016 -i wjets_lowpt_2016.txt  --send-external -s FileBased -n 1 --work-area crab_projects_mc_2016 --dryrun
-
-# wjets_lowpt_2017
-python crab.py -p mc_NANO_2017.py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2017 -t NanoTuples-2017 -i wjets_lowpt_2017.txt  --send-external -s FileBased -n 1 --work-area crab_projects_mc_2017 --dryrun
-
-# wjets_lowpt_2018
-python crab.py -p mc_NANO_2018.py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2018 -t NanoTuples-2018 -i wjets_lowpt_2018.txt  --send-external -s FileBased -n 1 --work-area crab_projects_mc_2018 --dryrun
-
-# wjets_mediumpt_2016
-python crab.py -p mc_NANO_2016.py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_2016 -t NanoTuples-2016 -i wjets_mediumpt_2016.txt  --send-external -s FileBased -n 1 --work-area crab_projects_mc_2016 --dryrun
-````
+## 
