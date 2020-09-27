@@ -1,0 +1,41 @@
+cmsrel CMSSW_10_2_18
+export SCRAM_ARCH slc7_amd64_gcc700
+cd CMSSW_10_2_18/src
+cmsenv
+git cms-addpkg PhysicsTools/NanoAOD
+
+cp /uscms_data/d3/matteoc/CMSSW_10_2_18/src/PhysicsTools/NanoAOD/plugins/NanoAODOutputModule.cc PhysicsTools/NanoAOD/plugins/NanoAODOutputModule.cc
+
+ git clone https://github.com/LPC-DM/NanoHarvester.git PhysicsTools/NanoTuples
+ 
+ cmsenv
+ 
+scram b -j12
+voms-proxy-init -rfc -voms cms --valid 168:00
+source /cvmfs/cms.cern.ch/crab3/crab_slc7.sh
+
+
+# now open the test_config.py
+and change 
+
+config.JobType.psetName = 'mc_NANO_2016.py'
+
+config.Data.inputDataset = '/WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM'
+
+
+#then save it
+
+crab submit --config=testConfig.py --dryrun
+
+For ~480 minute jobs, use:
+Data.unitsPerJob = 24246
+You will need to submit a new task
+Data.totalUnits = 115615584
+
+
+
+python crab.py -p mc_NANO_2016.py -o /store/user/runiyal/nano2016 -t NanoTuples-2016 -i wjets_lowpt_2016.txt  --send-external -s EventAwareLumiBased -n 24246 --work-area crab_projects_mc_2016 --dryrun
+
+crab status -d crab_projects_mc_2016/crab_WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext1
+
+crab status -d crab_projects_mc_2016/crab_WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8

@@ -1,0 +1,47 @@
+2018
+
+crab submit --config=testConfig.py --dryrun
+
+For ~480 minute jobs, use:
+Data.unitsPerJob = 14462
+You will need to submit a new task
+Data.totalUnits = 115614329
+
+
+p[runiyal@cmslpc145 crab]$ python crab.py -p mc_NANO_2018.py -o store/user/runiyal/nano2018 -t NanoTuples-2018 -i miniaod2018.txt  --send-external -s EventAwareLumiBased -n 14462 --work-area crab_projects_mc_2018 --dryrun
+--------------------------------------------------
+from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = False
+config.General.transferOutputs = True
+config.General.workArea = 'crab_projects_mc_2018'
+config.General.requestName = 'WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8'
+config.section_('JobType')
+config.JobType.numCores = 1
+config.JobType.sendExternalFolder = True
+config.JobType.pluginName = 'Analysis'
+config.JobType.allowUndistributedCMSSW = True
+config.JobType.psetName = 'mc_NANO_2018.py'
+config.JobType.maxMemoryMB = 2500
+config.section_('Data')
+config.Data.inputDataset = '/WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM'
+config.Data.outputDatasetTag = 'NanoTuples-2018_RunIIAutumn18MiniAOD-102X_v15-v1'
+config.Data.unitsPerJob = 17512
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventAwareLumiBased'
+config.Data.allowNonValidInputDataset = True
+config.Data.outLFNDirBase = '/eos/uscms/store/user/runiyal/nano2018'
+config.section_('Site')
+config.Site.storageSite = 'T3_US_FNALLPC'
+config.section_('User')
+config.section_('Debug')
+
+ crab remake --task=200925_142925:runiyal_crab_WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8
+ 
+ crab status -d crab_projects_mc_2018/crab_WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8
+ 
+ #this has to be uncommented in crab.py
+ from CRABClient.ClientExceptions import ClientException 
+
+
