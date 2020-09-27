@@ -99,3 +99,40 @@ More options of this crab.py script can be found with:
 ````console
 ./crab.py -h
 ````
+
+## samle config file for understnding
+
+````console
+# TWiki https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CheatSheet
+
+from WMCore.Configuration import Configuration
+
+config = Configuration()
+
+config.section_("General")
+config.General.requestName   = 'test1'
+config.General.saveLogs = True
+
+config.section_("JobType")
+config.JobType.pluginName  = 'Analysis'
+# Name of the CMSSW configuration file
+config.JobType.psetName    = 'pset.py'
+
+config.section_("Data")
+config.Data.inputDataset = '/GenericTTbar/HC-CMSSW_5_3_1_START53_V5-v1/GEN-SIM-RECO'
+config.Data.splitting = 'LumiBased'
+config.Data.unitsPerJob = 100
+config.Data.publication = True
+# This string is used to construct the output dataset name
+config.Data.publishDataName = 'CRAB3-tutorial'
+
+# These values only make sense for processing data
+#    Select input data based on a lumi mask
+config.Data.lumiMask = 'Cert_190456-208686_8TeV_PromptReco_Collisions12_JSON.txt'
+#    Select input data based on run-ranges
+config.Data.runRange = '190456-194076'
+
+config.section_("Site")
+# Where the output files will be transmitted to
+config.Site.storageSite = 'T2_US_Nowhere'
+````
