@@ -171,9 +171,13 @@ config.Site.storageSite = 'T2_US_Nowhere'
         pt Wjets sample
         
 ## How will the task be completed
-
+        
+        0. look through the W+jet low pt and HT sample root files to understand the variables
+        
         1. you have to be able to find a way to link you NanoTuple with decaf code
 
         2. once that's done, run the condor jobs on KISTI
         
         3. get the scaled file and produce the plots in different signal regions
+
+
