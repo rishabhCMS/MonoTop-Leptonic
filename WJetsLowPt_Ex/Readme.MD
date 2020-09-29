@@ -136,3 +136,44 @@ config.section_("Site")
 # Where the output files will be transmitted to
 config.Site.storageSite = 'T2_US_Nowhere'
 ````
+# September 22, 2020
+
+## Tasks to be completed
+        
+        1. Generate W+jets low pT (0-50 GeV)samples for 2016 (mid pT as well), 2017, 2018 
+        
+        Status: the nanoTuples were generated:
+            
+            2016: /WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM [Failed]
+            2016: /WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext1-v1/MINIAODSIM [Completed]
+            2018: /WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM [Completed]
+            2017:/WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM [Failed]
+            2016 medium_pt:/WJetsToLNu_Wpt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM  [Failed]
+        
+
+# Date September 29, 2020
+
+## Tasks to be completed:
+
+        1. run the hadronic monotop code with W+Jets-pT binned sample for 2018
+        
+        Facts to remember( to understand why we want to look at W+jets low pT)
+        
+            a. currently we are using Monojet K-factors calculated from Jet-HT bins (70-100 GeV)
+            b. Michael observed that there is mis-modelling in leptonic channel for low-pT W jets
+            c. Since the W+Jets-HT binned sample is only from 70-100Gev, we miss events below 70GeV
+            d. So, the W+Jets-pT (low pT 0-50 Gev) sample  will contain the full W-spectrum
+            
+        2. Find the talk from Michael, where he talks about mis-modelling in W+jets low pT 
+        (https://indico.cern.ch/event/932435/contributions/3918392/attachments/2070220/3475213/Monotop_Update.pdf)
+        
+        3. So, I would like to see the plots of different variables in different regions (SR, wecr, tecr...) in hadronic monotop channel to see the efects of low 
+        pt Wjets sample
+        
+## How will the task be completed
+
+        1. you have to be able to find a way to link you NanoTuple with decaf code
+
+        2. once that's done, run the condor jobs on KISTI
+        
+        3. get the scaled file and produce the plots in different signal regions
