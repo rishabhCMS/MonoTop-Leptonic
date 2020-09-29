@@ -180,4 +180,12 @@ config.Site.storageSite = 'T2_US_Nowhere'
         
         3. get the scaled file and produce the plots in different signal regions
 
+## Small Digression
+
+**What is the difference between a WJets WpT sample and WJets JetHT sample**
+It is basically a WJets sample with a differnce in the condition, 
+
+for example: WJet_WpT contains the saome W+Jets events but only those events for which the W_pT is in some range
+
+for example: wJets_JetHT contains the same W+Jets events but conatining only those events in which the JetHT is on some range
 
