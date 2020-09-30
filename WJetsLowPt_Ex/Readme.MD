@@ -189,3 +189,38 @@ for example: WJet_WpT contains the saome W+Jets events but only those events for
 
 for example: wJets_JetHT contains the same W+Jets events but conatining only those events in which the JetHT is on some range
 
+# Date September 30, 2020
+
+## Calculate the Cross-setion of the miniAOD samples for you generated the nanoAOD
+https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToGenXSecAnalyzer
+
+create a file test.txt and put your dataset in there
+**2018**
+ dataset=/WJetsToLNu_Wpt-0To50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
+./calculateXSectionAndFilterEfficiency.sh -f test.txt -c RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1 -d MINIAODSIM -n 1000000
+
+Before matching: total cross section = 1.032e+05 +- 1.739e+02 pb
+After matching: total cross section = 6.247e+04 +- 1.297e+02 pb
+Matching efficiency = 0.4 +/- 0.0   [TO BE USED IN MCM]
+Filter efficiency (taking into account weights)= (1.62068e+11) / (1.62068e+11) = 1.000e+00 +- 0.000e+00
+Filter efficiency (event-level)= (1.00002e+06) / (1.00002e+06) = 1.000e+00 +- 0.000e+00    [TO BE USED IN MCM]
+
+**After filter: final cross section = 6.247e+04 +- 1.297e+02 pb**
+After filter: final fraction of events with negative weights = 1.476e-01 +- 2.018e-05
+After filter: final equivalent lumi for 1M events (1/fb) = 7.950e-03 +- 1.292e-05
+
+ dataset=/WJetsToLNu_Wpt-0To50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext1-v1/MINIAODSIM
+ ./calculateXSectionAndFilterEfficiency.sh -f test.txt -c RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext1-v1 -d MINIAODSIM -n 10000
+ **2016**
+Before matching: total cross section = 9.245e+04 +- 3.404e+00 pb
+After matching: total cross section = 5.376e+04 +- 6.626e+01 pb
+Matching efficiency = 0.4 +/- 0.0   [TO BE USED IN MCM]
+Filter efficiency (taking into account weights)= (1.42643e+11) / (1.42643e+11) = 1.000e+00 +- 0.000e+00
+Filter efficiency (event-level)= (1.00007e+06) / (1.00007e+06) = 1.000e+00 +- 0.000e+00    [TO BE USED IN MCM]
+
+**After filter: final cross section = 5.376e+04 +- 6.626e+01 pb**
+After filter: final fraction of events with negative weights = 1.465e-01 +- 2.004e-05
+After filter: final equivalent lumi for 1M events (1/fb) = 9.300e-03 +- 1.046e-05
+
+
+
