@@ -222,5 +222,19 @@ Filter efficiency (event-level)= (1.00007e+06) / (1.00007e+06) = 1.000e+00 +- 0.
 After filter: final fraction of events with negative weights = 1.465e-01 +- 2.004e-05
 After filter: final equivalent lumi for 1M events (1/fb) = 9.300e-03 +- 1.046e-05
 
+# Date October 1-2
 
+[instructions](https://github.com/rishabhCMS/MonoTop-Leptonic)
+
+follow the instructions above to submit condor jobs on KISTI
+
+**Submitting jobs on Condor**
+
+````console
+[runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t #this generates .futures files
+[runiyal@ui20 analysis]$  python reduce_condor.py -f hists/darkhiggs2018 -c kisti -t -x
+[runiyal@ui20 analysis]$  python merge_condor.py -f hists/darkhiggs2018 -c kisti -t -x
+[runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p
+[runiyal@ui20 analysis]$  python scale.py -f hists/darkhiggs2018.merged 
+````
 
