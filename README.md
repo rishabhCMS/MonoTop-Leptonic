@@ -20,7 +20,7 @@ rishabh@uniyal:~$ scp -P 4280 krb5.conf runiyal@ui10.sdfarm.kr:/cms/ldap_home/ru
 ````console
 rishabh@uniyal:~$ ssh -p 4280 -L 9094:localhost:9094  runiyal@ui20.sdfarm.kr
 ````
-4. **to copy files from KISTI to LPC**
+4. **to copy files from KISTI to LPC/Local**
 
 ````console
 scp -r -P 4280 runiyal@ui10.sdfarm.kr:/cms/scratch/runiyal/decaf/analysis/hists/darkhiggs2018 .
