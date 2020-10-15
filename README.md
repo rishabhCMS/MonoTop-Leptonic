@@ -131,7 +131,7 @@ voms-proxy-init --rfc --voms cms -valid 192:00
      # if the version is something else use the following command to install the relevant version
      pip install coffea==0.6.37 --user
      
-     python run.py --metadata=2018 --dataset=MET____0_ --processor=darkhiggs2018
+     python run.py --metadata=2018 --dataset=MET --processor=darkhiggs2018
      
      python reduce.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/
      condor_q -better-analyze
@@ -139,7 +139,7 @@ voms-proxy-init --rfc --voms cms -valid 192:00
      - **Running tests on individual file using condor**
      ````console
      if want to test a single condor job with condor submission
-     python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti --dataset=MET____0_
+     python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti --dataset=MET
      python reduce_condor.py -d ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8 -f hists/darkhiggs2018/ -c kisti -x -t
 
      # test 
