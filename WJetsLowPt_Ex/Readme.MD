@@ -241,4 +241,17 @@ follow the instructions above to submit condor jobs on KISTI
 [runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p
 [runiyal@ui20 analysis]$  python scale.py -f hists/darkhiggs2018.merged 
 ````
+# date October 15 
 
+## current status
+
+    1. processor for mT hist for low pt W working and made
+    2. condor scaling done
+    
+## tasks
+    
+    0. [ ] produce low pT samples (0-100 Gev) 2018
+    1. [ ] plot all kinematic variables before selection
+    2. [ ] plot all kinematic variables after selection
+    3. [ ] learn to add weights
+    
