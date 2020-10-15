@@ -250,7 +250,7 @@ follow the instructions above to submit condor jobs on KISTI
     
 ## tasks
     
-    0. [ ] produce low pT samples (0-100 Gev) 2018
+    0. [ ] produce low pT samples (50-100 Gev) 2018
     1. [ ] plot all kinematic variables before selection
     2. [ ] plot all kinematic variables after selection
     3. [ ] learn to add weights
