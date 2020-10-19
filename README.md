@@ -150,7 +150,7 @@ voms-proxy-init --rfc --voms cms -valid 192:00
      [runiyal@ui20 analysis]$  python run_condor.py --processor=darkhiggs2018 --metadata=2018 --cluster=kisti -t #this generates .futures files
      [runiyal@ui20 analysis]$  python reduce_condor.py -f hists/darkhiggs2018 -c kisti -t -x
      [runiyal@ui20 analysis]$  python merge_condor.py -f hists/darkhiggs2018 -c kisti -t -x
-     [runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p
+     [runiyal@ui20 analysis]$  python merge.py -f hists/darkhiggs2018 -p # postpocess
      [runiyal@ui20 analysis]$  python scale.py -f hists/darkhiggs2018.merged 
      ````
      
