@@ -8,7 +8,7 @@ You will need to submit a new task
 Data.totalUnits = 115614329
 
 
-p[runiyal@cmslpc145 crab]$ python crab.py -p mc_NANO_2018.py -o store/user/runiyal/nano2018 -t NanoTuples-2018 -i miniaod2018.txt  --send-external -s EventAwareLumiBased -n 14462 --work-area crab_projects_mc_2018 --dryrun
+p[runiyal@cmslpc145 crab]$ python crab.py -p mc_NANO_2018.py -o /store/user/runiyal/nano2018 -t NanoTuples-2018 -i miniaod2018.txt  --send-external -s EventAwareLumiBased -n 14462 --work-area crab_projects_mc_2018 --dryrun
 --------------------------------------------------
 from WMCore.Configuration import Configuration
 config = Configuration()
